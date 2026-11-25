@@ -13,37 +13,47 @@
   <meta property="og:url" content="https://leoj0i.github.io/">
   <meta property="og:image" content="https://leoj0i.github.io/Damamondo/anteprima.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#e9eef2">
   <link rel="icon" type="image/png" sizes="32x32" href="/Damamondo/icons/favicon-32.png">
   <link rel="apple-touch-icon" href="/Damamondo/icons/apple-touch-icon.png">
   <!-- per Google: il nome di tutto il sito leoj0i.github.io è "Damamondo" -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Damamondo","alternateName":"Damamondo Classico","url":"https://leoj0i.github.io/"}</script>
   <style>
+    /* stessa grafica del menu del gioco (Damamondo/css/style.css) */
     :root { --bg: #e9eef2; --fg: #14202b; --pn: #fff; --bd: #b7c3cd; --ac: #b8862b; color-scheme: light; }
-    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #10171e; --fg: #e4eaef; --pn: #1a242d; --bd: #33424e; --ac: #e0b04f; color-scheme: dark; } }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --bg: #10171e; --fg: #e4eaef; --pn: #1a242d; --bd: #33424e; --ac: #e0b04f; color-scheme: dark; }
+    }
     :root[data-theme="dark"] { --bg: #10171e; --fg: #e4eaef; --pn: #1a242d; --bd: #33424e; --ac: #e0b04f; color-scheme: dark; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 24px 16px;
-      background: var(--bg); color: var(--fg); font: 17px/1.5 system-ui, sans-serif; }
-    main { max-width: 560px; text-align: center; }
-    img { width: 96px; height: 96px; border-radius: 22px; }
-    h1 { margin: 12px 0 4px; font-size: clamp(36px, 11vw, 72px); font-weight: 900; letter-spacing: .02em; text-shadow: 0 3px 0 var(--ac); }
-    p { margin: 12px 0; }
-    .r { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 22px; }
-    a.b { display: block; width: min(100%, 300px); padding: 14px 20px; border-radius: 14px; font-weight: 700; font-size: 20px; text-decoration: none;
-      border: 1px solid var(--bd); background: var(--pn); color: var(--fg); }
-    a.b.go { background: var(--ac); border-color: var(--ac); color: #111; }
-    a.b:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+    html, body { margin: 0; }
+    body { background: var(--bg); color: var(--fg); font: 15px/1.4 system-ui, sans-serif;
+      padding: calc(8px + env(safe-area-inset-top, 0px)) 8px calc(8px + env(safe-area-inset-bottom, 0px)); }
+    .menu { position: relative; min-height: 100vh; min-height: 100dvh; width: 100%; display: flex; justify-content: center; align-items: center;
+      padding: 24px 16px; overflow: hidden; }
+    .bg { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .35; filter: blur(2px) saturate(1.1); z-index: 0; pointer-events: none; }
+    .menu-body { position: relative; z-index: 1; width: 100%; max-width: 520px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .title { margin: 0 0 18px; text-align: center; font-size: clamp(30px, 11vw, 104px); line-height: 1; font-weight: 900; letter-spacing: .02em; white-space: nowrap;
+      color: var(--fg); text-shadow: 0 3px 0 var(--ac), 0 6px 18px rgba(0, 0, 0, .25); }
+    .title small { display: block; font-size: .26em; letter-spacing: .5em; padding-left: .5em; font-weight: 700; margin-top: 10px; opacity: .8; text-shadow: none; }
+    .stack { display: flex; flex-direction: column; align-items: stretch; gap: 12px; width: min(100%, 300px); }
+    a.big { display: flex; align-items: center; justify-content: center; min-height: 58px; padding: 14px 20px; border-radius: 14px; text-decoration: none;
+      font-size: 21px; font-weight: 700; color: var(--fg); background: var(--pn); border: 1px solid var(--bd); }
+    a.big.go { background: var(--ac); border-color: var(--ac); color: #111; }
+    a.big:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   </style>
 </head>
 <body>
-  <main>
-    <img src="/Damamondo/icons/icon-192.png" alt="">
-    <h1>DAMAMONDO</h1>
-    <p>Gioco di strategia da tavolo da giocare sul telefono, a turni sullo stesso dispositivo. Ogni giocatore guida un popolo:
-      costruisce città, porti e miniere, vende i minerali al Banco, addestra truppe e conquista territori su una mappa con biomi, fiumi e vulcani.</p>
-    <div class="r">
-      <a class="b go" href="/Damamondo/">Gioca</a>
-      <a class="b" href="/Damamondo/regole.html">Regole</a>
+  <main class="menu">
+    <img class="bg" src="sfondo.png" alt="">
+    <div class="menu-body">
+      <h1 class="title">DAMAMONDO<small>Classico</small></h1>
+      <p class="sr">Gioco di strategia da tavolo da giocare sul telefono: costruisci città, porti e miniere, commercia, addestra truppe e conquista il mondo.</p>
+      <nav class="stack" aria-label="Menu">
+        <a class="big go" href="/Damamondo/">Gioca</a>
+        <a class="big" href="/Damamondo/regole.html">Regole</a>
+      </nav>
     </div>
   </main>
 </body>
